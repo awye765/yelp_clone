@@ -5,7 +5,3 @@ module ReviewsHelper
     "★" * rating.round + "☆" * remainder             # => "★★★★☆"
   end                                                # => :star_rating
 end                                                  # => :star_rating
-
-
-include ReviewsHelper  # => Object
-star_rating(3.5)       # => "★★★★☆"

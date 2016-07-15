@@ -1,17 +1,25 @@
 <% if @restaurants.any? %>
-  
+
   <% @restaurants.each do |restaurant| %>
     <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
     <div id='description'><%= restaurant.description %></div><br>
     <%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %><br>
     <%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %><br>
     <%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %><br>
-    
+
 
     <% restaurant.reviews.all.each do |review| %>
-    Thoughts: <%= review.thoughts %> | Rating: <%= review.rating %><br>
+          <p>
+            <strong>Thoughts:</strong> <%= review.thoughts %>
+          </p>
+        <p>
+          <strong>Rating:</strong> <%= review.rating %>
+        </p>
+        --------------------------------------
     <% end %><br>
-  
+
+    <h3>Average rating: <%= restaurant.average_rating.to_i %></h3>
+
   <% end %>
 
 <% else %>
@@ -21,4 +29,3 @@
 <% end %>
 
 <a href='/restaurants/new'>Add a restaurant</a>
-

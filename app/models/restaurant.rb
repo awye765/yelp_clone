@@ -14,10 +14,9 @@ class Restaurant < ActiveRecord::Base
     user == current_user
   end
 
-  # def build_review(review_params = {}, current_user)
-  #   review = reviews.build(review_params)
-  #   review.user = current_user
-  #   review
-  # end
+  def average_rating
+    return 'N/A' if reviews.none?
+    reviews.inject(0) { |memo, review| memo + review.rating } / reviews.count
+  end
 
 end

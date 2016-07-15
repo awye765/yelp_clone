@@ -9,16 +9,22 @@
 
 
     <% restaurant.reviews.all.each do |review| %>
-          <p>
-            <strong>Thoughts:</strong> <%= review.thoughts %>
-          </p>
+        <p>
+          <strong>Thoughts:</strong> <%= review.thoughts %>
+        </p>
         <p>
           <strong>Rating:</strong> <%= review.rating %>
         </p>
         --------------------------------------
     <% end %><br>
 
-    <h3>Average rating: <%= restaurant.average_rating.to_i %></h3>
+    <h3>Average rating:</h3>
+      <p>
+        <%= restaurant.average_rating.to_i %> out of 5
+      </p>
+      <p>
+        <%= star_rating(restaurant.average_rating) %>
+      </p>
 
   <% end %>
 

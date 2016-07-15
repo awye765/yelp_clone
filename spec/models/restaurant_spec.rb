@@ -54,7 +54,7 @@ describe '#average rating' do
     end
   end
 
-  context "multiple reviews" do
+  xcontext "multiple reviews" do
     it 'returns the average' do
       restaurant = Restaurant.create(name: 'The Ivy')
       restaurant.reviews.create(rating: 2)

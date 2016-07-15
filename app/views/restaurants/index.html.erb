@@ -2,11 +2,14 @@
 
   <% @restaurants.each do |restaurant| %>
     <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+    <h3>Description</h3>
     <div id='description'><%= restaurant.description %></div><br>
+    <h3>Actions</h3>
     <%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %><br>
     <%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %><br>
     <%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %><br>
 
+    <h3>Reviews</h3>
 
     <% restaurant.reviews.all.each do |review| %>
         <p>

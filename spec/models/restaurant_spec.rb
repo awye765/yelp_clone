@@ -54,7 +54,11 @@ describe '#average rating' do
     end
   end
 
-  xcontext "multiple reviews" do
+  context "multiple reviews" do
+
+    let(:user1) { User.create email: 'rob@test.com' }
+    let(:user2) { User.create email: 'bob@test.com' }
+
     it 'returns the average' do
       restaurant = Restaurant.create(name: 'The Ivy')
       restaurant.reviews.create(rating: 2)

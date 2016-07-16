@@ -1,0 +1,3 @@
+<p>
+  <strong>By:</strong> <%= user = User.find(review.user_id).email %>
+</p>

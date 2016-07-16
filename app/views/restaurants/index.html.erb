@@ -18,6 +18,9 @@
         <p>
           <strong>Rating:</strong> <%= review.rating %>
         </p>
+        <p>
+          <strong>By:</strong> <%= user = User.find(review.user_id).email %>
+        </p>
         --------------------------------------
     <% end %><br>
 

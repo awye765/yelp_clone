@@ -6,6 +6,7 @@ feature 'reviewing' do
 
   scenario 'user can click add review link and leave a review' do
     visit '/restaurants'
+    sign_up(email: "todd@jobs.com")
     click_link 'Review KFC'
     fill_in 'Thoughts', with: 'Far too greasy for my taste'
     select '3', from: 'Rating'
@@ -20,6 +21,5 @@ feature 'reviewing' do
     leave_review('Great', '5')
     expect(page).to have_content('Average rating: 3 out of 5 ★★★☆☆')
   end
-
 
 end
